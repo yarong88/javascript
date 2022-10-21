@@ -1,0 +1,28 @@
+table *{
+    border: 1px solid black;                
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+table th{
+    background-color: lightskyblue;
+}
+.diameter {
+    width: 60px;
+    height: 60px;
+    border: 1px solid red;
+    border-radius: 50px;
+    margin: 10px;
+}
+.circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid red;
+    border-radius: 50px;
+    background-color: red;
+    margin: 10px;
+}
+sup {
+    border: none;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리드</title>
+    <style>
+        .container{
+            display: grid;
+            /* grid-template-columns: 100px 100px 200px; */
+            /* 좌우로 한칸씩, 크기를 하나하나 지정할때마다 가로축으로 숫자가 생김 */
+            /* grid-template-rows: 150px 150px; */
+            /* repeat, fr */
+
+            /* grid-template-columns: 1fr 2fr 1fr; */
+            /* fr : 비율 총합에 각자의 값만큼 비율을 가지는 */
+            /* grid-template-rows: 50px 150px; */
+
+            /* grid-template-columns: repeat(4, 1fr); */
+            /* repeat : 균등한 크기로 수만큼 분할 */
+            grid-template-rows: 50px 200px 50px;
+        }
+        .sp1{
+            background-color: aliceblue;
+            grid-column-start: 1;
+            grid-column-end: 5;
+            /* 1~5까지 한칸 : 4칸이면 5줄*/
+        }
+        .sp2{
+            background-color: antiquewhite;            
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .sp3{
+            background-color: aqua;          
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+        .sp4{
+            background-color: aquamarine;     
+            grid-column-start: 4;
+            grid-column-end: 5;
+        }
+        .sp5{
+            background-color: azure;
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
+        .sp6{
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="sp1">1</span>
+        <span class="sp2">2</span>
+        <span class="sp3">3</span>
+        <span class="sp4">4</span>
+        <span class="sp5">5</span>
+        <span class="sp6">6</span>
+    </div>
+</body>
+</html>
