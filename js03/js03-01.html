@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>현재시각 구하기</title>
+</head>
+<body>
+    <script>
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const day = date.getDate();
+        const hour = date.getHours();        
+        const min = date.getMinutes();  
+        const sec = date.getSeconds();
+
+        // document.write(
+        //     `${date} <br> ${year}년 ${month}월 ${day}일 ${hour}시 ${min}분 ${sec}초`
+        //     )
+
+// 조건문을 만들어 보자 if를 사용해서 2가지로 표현
+        // if (sec >= 30) {
+        //     document.write(
+        //         `${date} <br> ${year}년 ${month}월 ${day}일 ${hour}시 ${min}분 ${sec}초 (30초 이상입니다.)`
+        //     )
+        // };
+
+        // if (sec < 30) {
+        //     document.write(
+        //         `${date} <br> ${year}년 ${month}월 ${day}일 ${hour}시 ${min}분 ${sec}초 (30초 미만입니다.)`
+        //     )
+        // };
+
+// 짝수 홀수
+        // if (min%2==0) {
+        //     document.write(
+        //         `${date} <br> ${year}년 ${month}월 ${day}일 ${hour}시 ${min}분 ${sec}초 (짝수 분입니다.)`
+        //     )
+        // }
+        // if (min%2==1) {
+        //     document.write(
+        //         `${date} <br> ${year}년 ${month}월 ${day}일 ${hour}시 ${min}분 ${sec}초 (홀수 분입니다.)`
+        //     )
+        // }
+
+// 유통기한 : 객체에 추가적인 계산을 넣음
+        document.write(
+            `오늘은<br>${year}/${month}/${day}일 입니다.<br>
+            유통기한은<br>${year+1}/${month+1}/${day+6}일 입니다.<br>세계표준시<br>`
+            );
+
+        document.write(date.toISOString());
+        // 세계표준시 출력
+            
+// else : if를 제외한 모든
+    </script>    
+</body>
+</html>

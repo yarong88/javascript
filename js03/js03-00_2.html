@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CDN 활용</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+</head>
+<body>
+    <script>
+        let now= dayjs();
+        // document.write(`${now}<br>${now.format()}`);
+        document.write(now +"<br>"+now.format()+"<br>"+now.format("YYYY/MM/DD")+"<br>"+now.format("YY/MM/DD")+"<br>"+now.format("YY-MM-DD HH:mm:ss"));
+        // 포맷의 형태
+    </script>
+</body>
+</html>

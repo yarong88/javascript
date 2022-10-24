@@ -1,0 +1,22 @@
+table {
+    text-align: center;
+}
+table *{
+    height: 50px;
+    border: 1px solid black;
+}
+.temper01 {
+    background-color: purple;
+}
+.temper02 {
+    background-color: blue;
+}
+.temper03 {
+    background-color: yellow;
+}
+.temper04 {
+    background-color: orange;
+}
+.temper05 {
+    background-color: red;
+}
