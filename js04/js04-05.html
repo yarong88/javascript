@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        table *{
+            width: 50px;
+            height: 20px;
+            text-align: center;
+        }
+        table th{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // for (let i=0;i<=35;i++){
+        //     document.write(i+'번째 입니다.'+'<br>')
+        // }
+
+        // for (let i = 77; i>37; i--){
+        //     document.write(i+'번째 입니다.'+'<br>')
+        // }
+
+        document.write('<table><tr>')
+        for (let i = 1; i<=40; i++){
+            document.write(`<th>${i}</th>`)
+        }
+        document.write('</tr></table>')
+
+        let table = "<table><tr>"
+        for (let a =40; a>0; a--){
+            table += `<th>${a}</th>`
+        }
+        table += "</tr></table>"
+        document.write(table)
+
+        let table02 = "<table>"
+        for (let b =40; b>0; b--){
+            table02 += `<tr><th>${b}</th></tr>`
+        }
+        table02 += "</table>"
+        document.write(table02)
+    </script>
+</body>
+</html>

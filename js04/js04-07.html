@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>구구단</title>
+    <style>
+        table *{
+            width: 100px;
+            height: 50px;
+            background-color: antiquewhite;
+            text-align: center;
+        }
+        .times {
+            background-color: bisque;
+        }
+        table th{
+            background-color: burlywood;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        let table = "<table><tr><th colspan='10'>구구단</th></tr>"
+        for (let i = 2 ; i < 10 ; i++) {
+            table += `<tr>`
+            table += `<td class="times">${i}단</td>`
+            for (let j =1 ; j < 10 ; j++) {
+                table += `<td>${i}X${j}=${i*j}</td>`
+            }
+            table += `</tr>`
+        }
+        table += `</table>`
+
+        document.write(table)
+
+
+        let table02 = "<table><tr><th colspan='10'>구구단</th></tr>"
+        table02 += `<tr>`
+        for (let m = 2 ; m < 10 ; m++) {
+            table02 += `<th class='times'>${m}단</th>`
+        }
+        table02 += `</tr>`       
+        for (let k = 1 ; k < 10 ; k++) {
+            table02 += `<tr>`
+            for (let l =2 ; l < 10 ; l++) {
+                table02 += `<td>${l}X${k}=${l*k}</td>`
+            }
+            table02 += `</tr>`
+        }
+        table02 += `</table>`
+
+        document.write(table02)
+
+        let table03 = ""
+        table03 += `<table><tr><th colspan='10'>구구단</th></tr>`
+        table03 += `<tr>`
+        for (let n = 2 ; n < 10 ; n++) {
+            table03 += `<td><li class="times">${n}단</li>`
+            for (let o = 1 ; o < 10 ; o++) {
+            table03 += `<li>${n}X${o}=${n*o}</li>`
+            }
+            table03 += `</td>`
+        }
+        table03 += `</tr>`
+        table03 += `</table>`
+
+        document.write(table03)
+
+    </script>
+</body>
+</html>

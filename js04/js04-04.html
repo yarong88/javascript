@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>배열 요소 추가</title>
+</head>
+<body>
+    <script>
+        const num = [1,2,3,4,5,6,7,8,9,10]
+        num.splice(5,0,'|')
+        // 배열.splice(위치,0,추가할 요소)
+        num.splice(num.indexOf(7)+1,0,'도시락')
+        // 7 뒤에 도시락
+        num.splice(num.indexOf(9),0,'점심시간')
+        // 9 앞에 점심시간
+        console.log(num)
+    </script>
+</body>
+</html>

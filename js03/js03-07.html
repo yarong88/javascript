@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>거스름돈 계산</title>
+    <style>
+        table {                    
+            border-collapse: collapse;
+        }
+        table *{
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            background-color: lightgoldenrodyellow;    
+            border: 1px solid white;
+        }
+        table th{
+            background-color: aquamarine;
+            border: 1px solid white;
+            border-radius: 10px 10px 0 0;
+        }
+        img{
+            width: 20px;
+            height: 50px;
+        }
+    </style>
+
 </head>
 <body>
     <script>
         let buy = Number(prompt('구매하신 금액을 입력해주세요.'))
-        let money = Number(prompt('지불하실 금액을 입력해주세요.'))
-        let num = money - buy
+        let pay = Number(prompt('지불하실 금액을 입력해주세요.'))
+        let num = pay - buy
 
         let change50000 = (num-(num%50000))/50000
         let change10000 = ((num%50000)-(num%10000))/10000
@@ -23,9 +45,97 @@
         let change00005 = ((num%10)-(num%5))/5
         let change00001 = (num%5)
 
-        document.write(`구매하신 금액은 ${buy}원, 지불하신 금액은 ${money}원입니다.<br>거슬러 드릴 돈은 ${num}원으로<br>`)
-        document.write(`오만원권으로 ${change50000}장, 만원권으로 ${change10000}장, 오천원권으로 ${change05000}장,  천원권으로 ${change01000}장, 오백원짜리로 ${change00500}개, 백원짜리로 ${change00100}개, 오십원짜리로 ${change00050}개, 십원짜리로 ${change00010}개, 오원짜리로 ${change00005}개, 일원짜리로 ${change00001}개 입니다.`)
+        document.write(`구매하신 금액은 ${buy}원, 지불하신 금액은 ${pay}원입니다.<br>거슬러 드릴 돈은 ${num}원으로<br>`)
+        document.write(`오만원권으로 ${change50000}장, 만원권으로 ${change10000}장, 오천원권으로 ${change05000}장,
+          천원권으로 ${change01000}장, 오백원짜리로 ${change00500}개, 백원짜리로 ${change00100}개,
+           오십원짜리로 ${change00050}개, 십원짜리로 ${change00010}개, 오원짜리로 ${change00005}개, 일원짜리로 ${change00001}개 입니다.`)
+        
 
+        let img50000      
+        if (change50000 == 4) {
+            img50000 = '<img src="./img/img50000.jpg"><img src="./img/img50000.jpg"><img src="./img/img50000.jpg"><img src="./img/img50000.jpg">'
+        }  
+        if (change50000 == 3) {
+            img50000 = '<img src="./img/img50000.jpg"><img src="./img/img50000.jpg"><img src="./img/img50000.jpg">'
+        }     
+        if (change50000 == 2) {
+            img50000 = '<img src="./img/img50000.jpg"><img src="./img/img50000.jpg">'
+        }     
+        if (change50000 == 1) {
+            img50000 = '<img src="./img/img50000.jpg">'
+        }    
+        if (change50000 == 0) {
+            img50000 = '<img src="./img/hand.jpg">'
+        }
+        
+        let img10000
+        if (change10000 == 4) {
+            img10000 = '<img src="./img/img10000.jpg"><img src="./img/img10000.jpg"><img src="./img/img10000.jpg"><img src="./img/img10000.jpg">'
+        }
+        if (change10000 == 3) {
+            img10000 = '<img src="./img/img10000.jpg"><img src="./img/img10000.jpg"><img src="./img/img10000.jpg">'
+        }
+        if (change10000 == 2) {
+            img10000 = '<img src="./img/img10000.jpg"><img src="./img/img10000.jpg">'
+        }
+        if (change10000 == 1) {
+            img10000 = '<img src="./img/img10000.jpg">'
+        }
+        if (change10000 == 0) {
+            img10000 = '<img src="./img/hand.jpg">'
+        }
+
+
+        let table = ""
+        table = `<table>
+        <tr>
+            <th colspan="3">거스름돈</th>
+        </tr>
+        <tr>
+            <td>오만원권</td>
+            <td>${change50000}장</td>
+            <td>${img50000}</td>
+        </tr>
+        <tr>
+            <td>만원권</td>
+            <td>${change10000}장</td>
+            <td>${img10000}</td>
+        </tr>
+        <tr>
+            <td>오천원권</td>
+            <td>${change05000}장</td>
+        </tr>
+        <tr>
+            <td>천원권</td>
+            <td>${change01000}장</td>
+        </tr>
+        <tr>
+            <td>오백원권</td>
+            <td>${change00500}개</td>
+        </tr>
+        <tr>
+            <td>백원권</td>
+            <td>${change00100}개</td>
+        </tr>
+        <tr>
+            <td>오십원권</td>
+            <td>${change00050}개</td>
+        </tr>
+        <tr>
+            <td>십원권</td>
+            <td>${change00010}개</td>
+        </tr>
+        <tr>
+            <td>오원권</td>
+            <td>${change00005}개</td>
+        </tr>
+        <tr>
+            <td>일원권</td>
+            <td>${change00001}개</td>
+        </tr>
+    </table>`
+    document.write(table)
     </script>
+    
 </body>
 </html>
