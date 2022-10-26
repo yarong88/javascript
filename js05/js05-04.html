@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>for in, for of</title>
+</head>
+<body>
+    <script>
+        const arr = ['서울', '부산', '대구', '대전', '광주', '포항', '경주']
+        for (let i = 0 ; i < 7 ; i++) {
+            document.write(arr[i]+" ")
+        } // 각 요소를 출력
+        for (let j in arr) {
+            document.write(`<br>${Number(j)+1}번째 여행지 : ${arr[j]}`)
+        } // 인덱스를 출력
+        for (let k of arr) {
+            document.write(`<br>여행 예정지 : ${k}`)
+        } // 각 요소를 추력
+    </script>
+</body>
+</html>

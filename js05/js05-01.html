@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>합 구하기</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt('어디서부터 계산할까요>'))
+        let b = Number(prompt('어디까지 계산할까요?'))
+        let c = Number(0)
+        
+        document.write(`입력하신 ${a}부터 ${b}까지 순서대로 출력하면<br>`)
+        for (let i = a ; i <= b ; i++) {
+            if (i < b) {
+                c = c+i
+                document.write(`${i}, `)
+            } else {
+                c = c+i    
+                document.write(`${i}이며 합은 ${c}입니다.`)
+            }
+        }
+        // document 말고 div나 table을 쓰면?
+    </script>
+</body>
+</html>

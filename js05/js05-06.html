@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>break / continue</title>
+</head>
+<body>
+    <script>
+        // for (let i = 0; true ; i++) {
+        //     alert(i+'번째 반복문입니다.')
+            
+        //     const isContinue = confirm('계속 진행할까요?')
+        //     if (!isContinue) {
+        //         break
+        //     }
+        //   /* !는 반대의 의미, !의 뒷부분을 부정한다. */
+        // }
+
+        // for (let j = 0; j < 5; j++) {
+        //     continue
+        //     alert(j)
+        // }
+        /* 현재 반복문을 중지하고 다음 작업을 실행한다. */
+
+        let output = 0
+
+        for (let k = 1; k<=10; k++) {
+            if (k%2==1) {
+                continue
+            }
+            output += k
+        }
+        document.write('1에서 10까지 짝수들의 합은 '+output+'입니다.')
+        // 1~10에서 짝수의 합, 홀수일땐 패스
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>369 게임</title>
+</head>
+<body>
+    <script>
+        let a = Number(prompt('숫자를 입력해주세요'))
+
+        for (let i = 1; i <= a ; i++) {
+            // if (i%3==0 && i%5=00) {
+            //     document.write('와우! ')
+            // } else if (i%5==0) {
+            //     document.write('Wow! ')
+            // } else 
+            if (i > 9 && (i-i%10)%30==0 && i%10%3==0 && i%10!==0) {
+                document.write('('+i+')짝짝! ') //백의 자리 숫자가 3의 배수이고 십의 자리 숫자가 3의 배수가 아닐땐?
+            } else if (i > 9 && (i-i%10)%30==0) {
+                document.write('('+i+')짝! ')
+            } else if (i%10%3==0 && i%10!==0) {
+                document.write('('+i+')짝! ')
+            } else {
+                document.write(i+" ")
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>While 반복문</title>
+</head>
+<body>
+    <script>
+        let i = 0
+
+        // while (true) {
+        //     i++
+        //     alert(`${i}번째 반복입니다.`)
+        // } 
+        /* 강제로 종료시키기 전까지 계속 반복 */
+
+        // while (confirm('계속할까요?')) {
+        //     i++
+        //     alert(`${i}번째 반복입니다.`)
+        // }
+        /* 취소할때까지 계속 반복 */
+
+        const arr = ['서울', '부산', '대구', '대전', '광주', '포항', '경주']
+
+        while (i<arr.length) {
+            document.write(`${i+1}:${arr[i]}<br>`)
+            i++
+        }
+        // while : ()가 false 가 되지 않는 이상 {}를 계속 반복한다.
+
+        for (let j = 0 ; j<arr.length ; j++) {
+            document.write(`${j+1}:${arr[j]}<br>`)
+        }
+    </script>
+</body>
+</html>

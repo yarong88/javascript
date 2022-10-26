@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>숫자 맞추기</title>
+</head>
+<body>
+    <script>        
+        const ran = parseInt(Math.random()*100)
+        var answer01 = Number(prompt('숫자를 맞춰보세요! 1~100까지 임의의 숫자를 입력해주세요!'))
+        
+        if (answer01 == ran) {
+                alert('축하합니다! 맞추셨네요!')                
+        } else {
+            for (let i = 0; i < 4; i++) {
+              if (answer01 < ran) {
+                alert('임의의 숫자는 입력하신 '+answer01+'보다 큽니다.')
+                var answer01 = Number(prompt((4-i)+'번 남았습니다. 다시 입렵해주세요.'))
+                } else if (answer01 > ran) {
+                alert('임의의 숫자는 입력하신 '+answer01+'보다 작습니다.')
+                var answer01 = Number(prompt((4-i)+'번 남았습니다. 다시 입렵해주세요.'))
+                } else if (answer01 == ran) {
+                alert('축하합니다! 맞추셨네요!')
+                break
+                } 
+               }
+               alert('정답은 '+ran+'이었습니다..')
+        }
+
+    </script>
+</body>
+</html>
