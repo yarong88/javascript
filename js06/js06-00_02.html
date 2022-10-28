@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dice = 0
+        let d1 = d2 = d3 = d4 = d5 = d6 = 0
+        for (let i = 0; i <1000000; i++) {
+            dice = Math.floor(Math.random()*(25-1+1)+1)
+            if (dice >= 1 && dice < 5) d1++
+            if (dice >= 5 && dice < 9) d2++
+            if (dice >= 9 && dice < 14) d3++
+            if (dice >= 14 && dice < 18) d4++
+            if (dice >= 18 && dice < 22) d5++
+            if (dice >= 22 && dice < 26) d6++
+            // document.write(dice+'<br>')
+        }
+        document.write('주사위 1의 개수:'+d1+'<br>'
+                        +'주사위 2의 개수:'+d2+'<br>'
+                        +'주사위 3의 개수:'+d3+'<br>'
+                        +'주사위 4의 개수:'+d4+'<br>'
+                        +'주사위 5의 개수:'+d5+'<br>'
+                        +'주사위 6의 개수:'+d6+'<br>'
+                        +'토탈'+(d1+d2+d3+d4+d5+d6)+'번')
+    </script>
+</body>
+</html>
