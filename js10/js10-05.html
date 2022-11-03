@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+        let num = Number(prompt("년도를 입력해주세요."))      
+        function leap_year(num) {
+            if (num%400==0 || (num%4==0 && num%100!==0)) {
+                // document.write(num+'년은 윤년입니다.')
+                return '윤년입니다'
+            } else {
+                // document.write(num+'년은 윤년이 아닙니다.')
+                return '윤년이 아닙니다'
+            }
+        }
+        document.write(leap_year(num))
+    </script>
+</body>
+</html>

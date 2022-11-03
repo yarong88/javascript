@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>함수 스코프</title>
+</head>
+<body>
+    <script>
+        function mine() {
+            var a = '나는 var입니다.'
+            console.log(a)
+            {
+                var b = "나는 내부 var 입니다."
+                let c = "나는 내부 let 입니다."
+            }
+            console.log(b)
+            console.log(c)
+        }
+    </script>
+    
+</body>
+</html>

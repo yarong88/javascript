@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+</head>
+<body>
+    <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+    <script>
+        let dice_chance = Number(prompt('주사위를 몇번 던질까요?'))
+        let dice = 0
+        let dice_box = [0,0,0,0,0,0]
+        for (let i = 0 ; i < dice_chance ; i++) {
+            dice_box[(dice = Math.floor(Math.random()*6+1)-1)]++
+        }
+                
+        new Chart(document.getElementById("bar-chart-horizontal"), {
+            type: 'horizontalBar',
+            data: {
+            labels: [1,2,3,4,5,6],
+            datasets: [
+                {
+                label: "횟수",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3cba1f"],
+                data: dice_box
+                }
+            ]},
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: '주사위 누적'
+                }
+            }
+        });
+    </script>
+</body>
+</html>

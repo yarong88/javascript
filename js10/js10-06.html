@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x = Number(prompt('0을 제외한, 가감할 숫자를 입력해주세요'))
+        let num = 0
+        
+        function start(x) {
+            document.write(`<div>${num}부터 시작합니다!</div><button onclick="updn(${x})">${x}씩 증가</button>
+    <button onclick="updn(${-x})">${x}씩 감소</button>`)
+        }
+
+        document.write(start(x))
+        
+        let counting = 0
+
+    //     function updn(x) {
+    //         num = num + x
+    //         if (x>0) {
+    //         document.write(`<div>${num}</div><button onclick="updn(${x})">${x}씩 증가</button>
+    // <button onclick="updn(${-x})">${x}씩 감소</button>`)
+    //         }
+    //         if (x<0) {
+    //         document.write(`<div>${num}</div><button onclick="updn(${-x})">${-x}씩 증가</button>
+    // <button onclick="updn(${x})">${-x}씩 감소</button>`)
+    //         }
+    //         document.close()
+    //     }
+
+        function updn(x) {
+            num = num + x
+            document.write(`<div>${num}</div><button onclick="updn(${Math.abs(x)})">${Math.abs(x)}씩 증가</button>
+    <button onclick="updn(${-Math.abs(x)})">${Math.abs(x)}씩 감소</button>`)            
+            document.close()
+        }
+        // 절대값 함수! Math.abs()
+
+    </script>
+</body>
+</html>

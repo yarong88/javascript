@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>최소값을 구해보자</title>
+</head>
+<body>
+    <script>
+        
+        function lot(num,set) {            
+            let lotto = []
+            for (let i = 0; i<set; i++) {
+                let a = Math.floor(Math.random()*num)+1
+                if (lotto.indexOf(a) == -1) {
+                    lotto.push(a)
+                } else {
+                    i--
+                }
+            }
+            return lotto
+        }
+
+
+        
+        function minALL(box) {
+            let min = box[0]
+
+            for (let i = 0 ; i>= 0 ; i++) {
+            if (box[i+1] !== undefined) {
+                if (min < box[i+1]) {
+                    min = min
+                } else {
+                    min = box[i+1]
+                }
+            } else {
+                break
+            }
+            }
+            console.log(min)
+        }
+
+        function maxALL(box) {
+            let max = box[0]
+
+            for (let i = 0 ; i>= 0 ; i++) {
+            if (box[i+1] !== undefined) {
+                if (max > box[i+1]) {
+                    max = max
+                } else {
+                    max = box[i+1]
+                }
+            } else {
+                break
+            }
+            }
+        }
+
+        function plus_order(box) {
+            // let num = 0
+            // for (let i = 0 ; ; i++) {
+            // if (box[i+1] !== undefined) {
+            //     num++
+            // } else {
+            //     break
+            // }
+            // }
+
+            for (let k = 0 ; k<box.length ; k++) {
+                for (let j = 0 ; j<box.length ; j++){
+                    if (box[k] > box[k+1]) {
+                        box.push(box[k])
+                        box.splice(k,1)
+                    } else {
+                        box.push(box[k+1])
+                        box.splice(k+1,1)
+                    }
+                }
+            }            
+            return box
+        }
+    </script>
+</body>
+</html>
