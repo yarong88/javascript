@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>깊은 복사, 얕은 복사</title>
+</head>
+<body>
+    <script>
+        /* 기본형 얕은 복사 */
+        var v1 = '얕은 복사'
+        var v2 = v1;
+        console.log(v1)
+        console.log(v2)
+        v2 = '변할까?'
+        console.log(v1)
+        console.log(v2)
+
+        /* 참조 */
+        let arr01 = [11,22,33,44,55]
+        let arr02 = arr01
+        console.log(arr01)
+        console.log(arr02)
+        console.log(arr01==arr02)
+        console.log(arr01===arr02)
+        arr02[0] = 11111
+        console.log(arr01)
+        // arr01은 왜 바뀐걸까?
+        console.log(arr02)
+        console.log(arr01==arr02)
+        console.log(arr01===arr02)
+
+        /* 참조 - 깊은복사 */
+        let arr03 = [1,2,3,4,5]
+        let arr04 = [...arr03]
+        console.log(arr03)
+        console.log(arr04)
+        console.log(arr03==arr04) // false
+        console.log(arr03===arr04) // false
+
+        
+        let arr05 = [1,2,3,4,5]
+        let arr06 = [1,2,3,4,5]
+        console.log(arr05=arr06)
+        console.log(arr05==arr06)
+        console.log(arr05===arr06)
+        
+
+
+    </script>
+</body>
+</html>

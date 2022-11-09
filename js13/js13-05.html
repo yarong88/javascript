@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>구버전 매개변수</title>
+</head>
+<body>
+    <script>
+        function earnings (wage, hours) {
+            wage = typeof(wage) != undefined ? wage : 9160
+            hours = typeof(hours) != undefined ? hours : 52
+            return wage * hours
+        }
+
+        // wage = wage || 9160 wage에 값이 존재하지 않는다면 뒷 값이 들어간다.
+        // 단 wage 값이 false, 0, 빈값이 아니어야 한다.
+
+    </script>
+</body>
+</html>

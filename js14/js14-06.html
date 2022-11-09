@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문제풀이</title>
+</head>
+<body>
+    <script>
+        // 20부터 90까지 짝수로 구성된 배열을 만들고
+        // 거기서 35보다 큰 수중에
+        // 10의 배수만 뽑아서
+        // 각요소를 2배씩 곱하여
+        // 요소 하나씩 출력하라.
+        const arr = []
+        for (let i =20; i<90; i+=2)arr.push(i)
+
+        arr
+            .filter(v=>v>35&&v%10==0)
+            .map(v=>v*2)
+            .forEach(v=>console.log(v))
+    </script>
+</body>
+</html>

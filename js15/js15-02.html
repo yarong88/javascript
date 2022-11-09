@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr = Array(100).fill().map((v,i)=>v=i+1)
+        let arr01 = Array(100)
+        let arr02 = arr01.fill()
+        let arr03 = arr02.map((v,i)=>v=i+1)
+        console.log(Array(100))
+        console.log(arr02)
+        console.log(arr03)
+
+        let arr04 = arr03.filter(v=>v%3==0)
+        console.log(arr04)
+
+        let arr05 = arr03.map(v=>v%3==0?'짝':v)
+        console.log(arr05)
+
+    </script>
+</body>
+</html>

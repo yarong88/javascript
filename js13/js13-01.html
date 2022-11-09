@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>기본 매개변수</title>
+</head>
+<body>
+    <script>
+        function earnings (name, wage=9160, hour=40) {
+            // 기본값을 넣어줌으로서 매개변수가 들어가지 않을 경우 기본값으로 대체하여 함수를 진행한다.
+            document.write(`# ${name} 님의 급여 정보<br>`)
+            document.write(`- 시급 : ${wage}원<br>`)
+            document.write(`- 근무 시간 : ${hour}시간<br>`)
+            document.write(`- 급여 : ${wage*hour}원<br>`)
+            document.write(`<br>`)
+        }
+
+        earnings('구름')
+
+        earnings('별', 10000)
+
+        earnings('인성', 10000, 52)
+    </script>
+</body>
+</html>

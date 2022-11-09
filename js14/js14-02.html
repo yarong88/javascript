@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>forEach</title>
+</head>
+<body>
+    <script>
+        // arr = ['안녕',123,'반가워요',10000,777]
+        // arr.forEach(function(value,index,array){
+        //     console.log(index + '번째 요소:'+ value)
+        // })
+        const arr = []
+        for (let i=0;i<20;i++){
+            arr[i]=i+1
+        }
+        arr.forEach(function(value,index,array){
+            if(index%2){
+                console.log(value)}
+            }        
+        )        
+    </script>
+</body>
+</html>

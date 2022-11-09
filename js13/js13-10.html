@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>콜백</title>
+</head>
+<body>
+    <script>
+        function lol(hero, level=1, skill=fire) {
+            if (level >= 6) {
+                document.write(`${hero}(이)가 궁극기를 사용합니다!<br>`)
+                skill(level)
+            } else {
+                document.write(`${hero}가 평타를 때립니다!`)
+            }
+
+            function fire() {
+                for (let i = 0 ; i < level ; i++) {
+                    document.write(`${i}번째 불꽃을 ${i}개 날립니다.`)
+                }
+            }
+            function ice() {
+                for (let i = 0 ; i < level ; i++) {
+                    document.write(`${i}번째 얼음 조각을 ${i}개 날립니다.`)
+                }
+            }
+        }
+    </script>
+</body>
+</html>

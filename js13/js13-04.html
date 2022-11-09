@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>전개연산자 이전 apply()</title>
+</head>
+<body>
+    <script>
+        let base = Math.max(11,99,22,88,33,77)
+        let base2 = [11,99,22,88,33,77]
+        console.log(base)
+        console.log(Math.max(base2))
+        console.log(Math.max(...base2))
+
+        // 전개 연산자 이전은?
+        console.log(Math.max.apply(null,base2))
+        // apply(null,배열)
+    </script>
+</body>
+</html>

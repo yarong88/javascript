@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>문제2번, 다음 과정에 따라 최대값을 찾는 max() 함수를 만드시오.</title>
+</head>
+<body>
+    <script>
+        function max01(array) {
+            let output = array[0]
+            for (let i = 0 ; i < (array.length-1) ; i++) {
+                if (output < array[i+1]) {
+                    output = array[i+1]
+                }
+            }
+            return output
+        }
+        console.log(max01([1,2,3,4]))
+
+        function max02(...array) {
+            let output = array[0]
+            for (let i = 0 ; i < (array.length-1) ; i++) {
+                if (output < array[i+1]) {
+                    output = array[i+1]
+                }
+            }
+            return output
+        }
+        console.log(max02(1,2,3,4))
+
+        function max03(...array) {            
+            let output = array[0]
+            let output02            
+            if (Array.isArray(output)){    
+                output02 = output[0]       
+                for (let i = 0 ; i < (output.length-1) ; i++) {
+                    if (output02 < output[i+1]) {
+                        output02 = output[i+1]
+                    }
+                }
+                return output02
+            } else {
+                for (let i = 0 ; i < (array.length-1) ; i++) {
+                    if (output < array[i+1]) {
+                        output = array[i+1]
+                    }
+                }
+                return output                
+            }
+        }
+        console.log(max03([1,2,3,4]))
+        console.log(max03(1,2,3,4))
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // words = ['kiwi','orange','banana','exuberant','destruction','present']
+        //     에서
+        //     1) 글자의 크기값(length)을 가진 새로운 배열을 만드시오.
+        //     2) 6글자가 넘어가는 단어만 고르고
+        //     그 단어와 글자 갯수를 하나씩 출력하시오.
+
+        const words = ['kiwi','orange','banana','exuberant','destruction','present']
+        
+        /* 1번 */
+        const words_n = words.map(v=>v.length)
+        console.log(words_n)
+
+        /* 2번 */
+        words
+            .filter(v=>v.length>6)
+            .forEach(v=>console.log(`${v}단어의 글자수:${v.length}`))
+
+    </script>
+</body>
+</html>

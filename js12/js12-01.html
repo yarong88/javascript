@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>나머지 매개변수</title>
+</head>
+<body>
+    <script>
+        function sample(items) {
+            console.log(items)
+        }
+        sample(1)
+        // 1
+        sample('안녕')
+        // 안녕
+        sample([1,2,3])
+        // [1,2,3]
+        sample(4,5,6)      
+        // 4  
+        
+        function sample02(...items) {
+            console.log(items)
+        }
+        sample02(1)
+        // [1]
+        sample02('안녕')
+        // ['안녕']
+        sample02([1,2,3])
+        // Array[3]
+        sample02(4,5,6)      
+        // (3) [4,5,6]  
+
+        function sample03(a,b,...items) {
+            console.log(a,b,items)
+        }
+        sample03(1)
+        // 1 undefined > []
+        sample03('안녕')
+        // 안녕 undefined > []
+        sample03([1,2,3])
+        // [1,2,3] undefined > []
+        sample03(4,5,6)      
+        // 4 5 > [6] 
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>배열 합치기</title>
+</head>
+<body>
+    <script>
+        const arr01 = [1,2,3]
+        const arr02 = [4,5,6]
+        const arr03 = [7,8,9]
+        document.write(arr01+'<br>')
+        document.write(arr02+'<br>')
+        document.write(arr03+'<br>')
+
+        let Allarr = [...arr01, ...arr02, ...arr03]
+        
+        document.write(Allarr)
+        document.write('<br>'+Allarr.length+' '+Array.isArray(Allarr))
+        document.write('<br>')
+
+        let allarr = []
+
+        // for (let i = 0 ; i < 3 ; i++) {
+        //     allarr.push(arr01.splice(0,1))
+        //     allarr.push(arr02.splice(0,1))
+        //     allarr.push(arr03.splice(0,1))       
+        // }
+        
+        for (let i = 0 ; i < 3 ; i++) {
+            allarr.push(arr01.splice(0,1))
+        }
+        for (let i = 0 ; i < 3 ; i++) {
+            allarr.push(arr02.splice(0,1))
+        }
+        for (let i = 0 ; i < 3 ; i++) {
+            allarr.push(arr03.splice(0,1))
+        }
+
+        document.write(allarr)
+        document.write('<br>'+allarr.length+' '+Array.isArray(allarr))
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>나머지 매개변수 2</title>
+</head>
+<body>
+    <script>
+        function min(...items) {
+            let min = items[0]
+            for (let i = 0 ; i < items.length ; i++) {
+                if (min > items[i+1]) {
+                    min = items[i+1]
+                }
+            }
+            return min
+        }
+        console.log(`${min(42,27,32,103,275,24,57)}`)
+        // 24
+    </script>
+</body>
+</html>

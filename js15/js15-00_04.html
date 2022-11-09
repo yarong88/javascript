@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = Array(100).fill().map((v,i)=>v=i+1)
+        
+        const arr_oe = arr.reduce((a,c)=>{
+            a.push(c%2?'짝수':'홀수')
+            return a
+        },[])
+
+        console.log(arr_oe)
+
+        const arr_fil = arr.reduce((a,c)=>{
+            if(c>50)a.push(c)
+            return a
+        },[])
+
+        console.log(arr_fil)
+
+    </script>
+</body>
+</html>

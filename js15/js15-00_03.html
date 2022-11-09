@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = Array(100).fill().map((v,i)=>v=i+1)
+        let sum = arr.reduce((acc,cur,idx,ary)=>{
+            console.log(acc,cur,idx,ary)
+            return acc+cur
+        })
+        console.log(sum)
+    </script>
+</body>
+</html>

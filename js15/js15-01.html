@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr01 = []
+        let arr02 = []
+        let answer = 0        
+        for (let i =0 ; i <= 100 ; i++) {
+            if (i<33) {
+                arr01.push(answer)
+                answer+=2
+            } else if (i<70) {
+                arr01.push(answer++)
+            } else if (i<=100) {
+                arr01.push(answer-=2)
+            }
+        }
+
+
+        
+        for (let i = 0 ; i < arr01.length ; i++) {
+            if(arr01[i]%2==1) {
+                arr02.push('홀수')
+            } else {
+                arr02.push('짝수')
+            }
+        }
+
+        
+        const arr03 = arr01.map(v=>v%2==1?'홀수':'짝수')
+        // const arr03 = arr01.map((v,i)=>v%2==1?arr01[i]+' 홀수':arr01[i]+' 짝수')
+        
+        
+        // const arr03 = []        
+        // arr01.map((value,index)=>{if(value%2==1){arr03[index]=arr01[index]+' 홀수'}else{arr03[index]=arr01[index]+'짝수'}})
+
+        
+        console.log(arr01)
+        console.log(arr02)
+        console.log(arr03)
+
+        // array.forEach(element,i => {});
+    </script>
+    
+</body>
+</html>
