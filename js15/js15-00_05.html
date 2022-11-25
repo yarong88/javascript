@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr01 = []
+        let answer = 0        
+        for (let i =0 ; i <= 100 ; i++) {
+            if (i<33) {
+                arr01.push(answer)
+                answer+=2
+            } else if (i<70) {
+                arr01.push(answer++)
+            } else if (i<=100) {
+                arr01.push(answer-=2)
+            }
+        }
+
+        console.log(arr01)
+        
+        const arr_oe = arr01.reduce((a,c)=>{
+            a.push(c%2==0?'짝수':'홀수')
+            return a
+        },[])
+
+        console.log(arr_oe)
+
+        for (let i = 0 ; i < arr_oe.length ; i++) {
+            console.log(`"${i+1}번째 ${arr01[i]}값은 ${arr_oe[i]}이다."`)
+        }       
+
+    </script>
+</body>
+</html>

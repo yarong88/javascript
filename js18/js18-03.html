@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const 구름 = {
+            이름: '구름',
+            나이: 6,
+            종족: '개'
+        }
+        const 별 = 구름
+        별.나이 = 2
+        console.log(별)
+        console.log(구름)
+        //얕은 복사
+
+        
+        const 바람 = {
+            이름: '바람',
+            나이: 4,
+            종족: '고양이'
+        }
+        const 달 = {...바람}
+        달.나이 = 2
+        console.log(달)
+        console.log(바람)
+        // 깊은 복사
+
+        console.log(JSON.stringify(달, null, 2))
+        //JSON파일 형식으로
+
+        const 태양 = JSON.stringify(달)
+        // JSON형식으로
+        const 지구 = JSON.parse(태양)
+        // 깊은 복사와 같이 복사가 된다.
+        console.log(태양)
+        console.log(지구)
+
+        const 화성 = JSON.parse(JSON.stringify(지구))
+        // 단, 메소드가 없을때
+        // JSON 파일 내에는 메소드와 주석이 존재하지 않는다.
+        화성.이름 = '화성'
+        화성.나이 = 3
+        console.log(화성)
+        console.log(지구)
+
+    </script>
+</body>
+</html>

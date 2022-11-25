@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fn()
+        function fn() {
+            console.log('나는 호이스팅 되었어.')
+        }
+        // 호이스팅 변수의 선언, 함수의 선언이 상단으로 끌어올려짐
+        // 값이 먼저 들어가지 않고 초기화됨 
+        // 함수를 선언과 동시에 생성할 때는 호이스팅이 되지 않는다.
+
+        const object = {
+            ko: '빵',
+            en: 'bread',
+            fr: 'pain',
+            es: 'pan',
+            lang: {
+                ko: '한국어',
+                en: '영어',
+                fr: '프랑스어',
+                es: '스페인어'
+            },
+            print: function (lang) {
+                console.log(`${this.ko}는 ${this.lang[lang]}로 ${this[lang]}입니다.`)
+                //빵는 스페인어로 pan입니다.
+            }
+        }
+        object.print('es')
+    </script>
+</body>
+</html>

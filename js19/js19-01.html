@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str1 = "              안녕하세요              "
+        console.log(str1)
+        console.log(str1.trim())
+        
+        let str2 = "a,b,c,d,e,f,g,h"
+        console.log(str2)
+        str2_ar = str2.split(',')
+        console.log(str2_ar)
+
+        let str3 = `내가 만약
+        나비라면
+        훨훨
+        날아갈텐데`
+        console.log(str3)
+        let str3_ar = str3.split('\n')
+        console.log(str3_ar)
+        console.log(str3_ar[2])
+        let str3_ar2 = str3_ar[2].trim()
+        console.log(str3_ar2)
+        
+        let str3_ar3 = str3_ar.map(v=>v.trim())
+        console.log(str3_ar3)
+
+        let str4 = `내가 만약
+        나비라면
+        훨훨
+        날아갈텐데`
+        let str4_ar = str4.replace()
+        console.log(str4_ar)
+
+    </script>
+</body>
+</html>

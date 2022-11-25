@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr01 = Array(10).fill().map(v=>v=Math.floor(Math.random()*100))
+
+        const arr_oe = arr01.reduce((a,cv,ci,ar)=>{
+            if(ci<(ar.length-1)) {
+                return a = a+cv
+            } else {         
+                return ((a+cv)/(ci))  
+            }
+        },0)
+
+        console.log(arr01)
+        console.log(arr_oe)
+
+    </script>
+</body>
+</html>
