@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',() => {            
+            const on_button = document.createElement('button')
+            document.body.append(on_button)
+            on_button.textContent = '동작'
+
+            const off_button = document.createElement('button')
+            document.body.append(off_button)
+            off_button.textContent = '해제'
+
+            const lock_button = document.createElement('button')
+            document.body.append(lock_button)
+            lock_button.textContent = '잠금'
+            
+            let islock = false;
+
+            function write() {                
+                const h1 = document.createElement('h1')
+                document.body.append(h1)
+                h1.textContent = `'안녕하세요. 반갑습니다.'`
+            }
+            function write_set() {
+                if (!islock) {                
+                    setTimeout(write,3000)
+                }
+            }
+            on_button.addEventListener('click', write_set)
+            
+            function del() {   
+                const h1 = document.querySelector('h1')   
+                h1.parentNode.removeChild(h1)
+            //     document.body.removeChild(h1)
+            }
+            function del_set() {  
+                if (!islock) {                
+                    setTimeout(del,3000)
+                }
+            }
+            off_button.addEventListener('click', del_set)
+            
+            lock_button.addEventListener('click', () => {
+                if (islock) {
+                    lock_button.textContent = '잠금'  
+                } else {
+                    lock_button.textContent = '해제'   
+                }                
+                islock = !islock             
+            })
+            
+            // lock_button.addEventListener('click', () => {
+            //     if (on_button.disabled == false) {
+            //         on_button.disabled = true;
+            //         off_button.disabled = true;
+            //     } else {
+            //         on_button.disabled = false;
+            //         off_button.disabled = false;
+            //     }                
+            // })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 연결 제거하기</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const h1 = document.createElement('h1')
+            document.body.append(h1)
+            h1.textContent = `클릭 횟수 : 0`
+
+            const connectButton = document.createElement('button')
+            document.body.append(connectButton)
+            connectButton.textContent = '이벤트 연결'
+
+            const disconButton = document.createElement('button')
+            document.body.append(disconButton)
+            disconButton.textContent = '이벤트 해제'
+
+            const station = document.createElement('div')
+            document.body.append(station)
+            station.textContent = '이벤트 연결 상태 : 해제'
+
+            let counter = 0
+
+            // const counting = function() {
+            //     counter++
+            //     h1.textContent = `클릭 횟수 : ${counter}`
+            // }
+
+            function counting() {
+                counter++
+                h1.textContent = `클릭 횟수 : ${counter}`
+            }
+
+            connectButton.addEventListener('click', () => {
+                h1.addEventListener('click', counting)
+                station.textContent = '이벤트 연결 상태 : 연결'
+            })
+
+            disconButton.addEventListener('click', () => {
+                h1.removeEventListener('click', counting)
+                station.textContent = '이벤트 연결 상태 : 해제'
+            })
+            
+            h1.style.userSelect = 'none'
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>

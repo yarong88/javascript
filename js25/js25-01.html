@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const h3 = document.createElement('h3')
+            document.body.append(h3)
+            h3.innerHTML = `달러를 원화로 환전하겠습니다.<br>환전하실 달러의 액수를 입력해주세요.`
+            const input = document.createElement('div')
+            document.body.append(input)
+            input.setAttribute('class','form-floating')
+            const textarea = document.createElement('textarea')
+            input.appendChild(textarea)
+            textarea.setAttribute('class','form-control')
+            textarea.setAttribute('placeholder','Leave a comment here')
+            textarea.setAttribute('id','floatingTextarea')
+            const label = document.createElement('label')
+            input.appendChild(label)
+            label.setAttribute('for','floatingTextarea')
+            label.textContent = '달러의 액수를 입력해주세요.'
+            const span = document.createElement('span')
+            document.body.append(span)
+            span.innerHTML = '달러<br>'
+            const button = document.createElement('button')
+            document.body.append(button)
+            button.textContent = '환전'
+            const p = document.createElement('p')
+            document.body.append(p)
+
+            button.addEventListener('click', () => {
+                const dollar = Number(input.value)
+                if (isNaN(dollar)) {
+                    // isNaN 숫자가 아니라면
+                    p.textContent = '숫자를 입력해주세요.'
+                    return
+                }
+                const won = dollar * 1313
+                const won_kr = won.toLocaleString('ko-KR')
+                // 지정된 지역에서 사용하는 숫자의 표현방식으로 문자열로 리턴한다.
+                p.textContent = `${dollar}달러는 ${won_kr}원으로 환전되었습니다.`
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 스타일 확인</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <button>버튼 1</button>
+    <button>버튼 2</button>
+    <button>버튼 3</button>
+    <button>RESET</button>
+    <button>style</button>
+    <p></p>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            let h1 = document.querySelector('h1')
+            let p = document.querySelector('p')
+            let button = document.querySelectorAll('button')
+
+            button[0].addEventListener('click',()=>{
+                h1.style.cssText = ""
+                h1.style.cssText = "color: green;font-size:1em;"
+            })
+            button[1].addEventListener('click',()=>{
+                h1.style.cssText = ""
+                h1.style.cssText = "color: red;font-size:2em;text-align: center;"
+            })
+            button[2].addEventListener('click',()=>{
+                h1.style.cssText = ""
+                h1.style.cssText = "color: blue;font-size:1.5em;text-decoration: underline;"
+            })
+            button[3].addEventListener('click',()=>{
+                h1.style.cssText = ""
+                p.textContent = h1.style.cssText
+            })
+            button[4].addEventListener('click',()=>{
+                p.textContent = h1.style.cssText
+            })
+        })
+    </script>
+</body>
+</html>

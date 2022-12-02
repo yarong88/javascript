@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const div = document.createElement('div')
+            const input1 = document.createElement('input')
+            const select1 = document.createElement('select')
+            const input2 = document.createElement('input')
+            const select2 = document.createElement('select')
+            document.body.appendChild(div).append(input1,select1,'=',input2,select2)
+
+            const omenu = ['킬로미터','미터','센치미터','밀리미터','마이크로미터' ]
+            for (let menu of omenu) {
+                let option = document.createElement('option')
+                select1.appendChild(option)
+                option.innerHTML = menu
+            }
+            for (let menu of omenu) {
+                let option = document.createElement('option')
+                select2.appendChild(option)
+                option.innerHTML = menu
+            }
+
+            let input1_num
+            let input2_num
+            let output1
+            let output2
+            let select1_num = '1000000000'
+            let select2_num = '1000000000'
+            
+            const num_omenu = [1000000000,1000000,10000,1000,1]
+
+            input1.addEventListener('keyup', (event) => {
+                input1.setAttribute('value',`${event.currentTarget.value}`)
+                input1_num = Number(event.currentTarget.value)
+                output1 = Number(input1_num*select1_num/select2_num)
+                input2.setAttribute('value',`${output1}`)
+                input2_num = Number(input2.value)
+            })
+
+            input2.addEventListener('keyup', (event) => {
+                input2.setAttribute('value',`${event.currentTarget.value}`)
+                input2_num = Number(event.currentTarget.value)
+                output2 = Number(input2_num*select2_num/select1_num)
+                input1.setAttribute('value',`${output2}`)
+                input1_num = Number(input1.value)
+            })
+            
+            select1.addEventListener('change', (event) => {                
+                const index = event.currentTarget.options.selectedIndex
+                select1_num = Number(num_omenu[index])
+                output2 = Number(input2_num*select2_num/select1_num)
+                input1.setAttribute('value',`${output2}`)
+                input1_num = Number(input1.value)
+            })
+            
+            select2.addEventListener('change', (event) => {                
+                const index = event.currentTarget.options.selectedIndex
+                select2_num = Number(num_omenu[index])
+                output1 = Number(input1_num*select1_num/select2_num)
+                input2.setAttribute('value',`${output1}`)
+                input2_num = Number(input2.value)
+            })
+                       
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
