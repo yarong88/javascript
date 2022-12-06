@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=> {
+            const h1 = document.createElement('h1')
+            const input = document.createElement('input')
+            const button = document.createElement('button')
+            const delete_button = document.createElement('button')
+            const div = document.createElement('div')
+            document.body.append(h1,input,button,delete_button)
+            h1.textContent = '할 일 목록'
+            input.setAttribute('id', 'todo')
+            button.setAttribute('id','add-button')
+            button.textContent = '추가하기'
+            delete_button.textContent = '제거하기'
+            div.setAttribute('id','todo-list')
+            
+            
+            let todo = ''
+            input.addEventListener('keyup', (event) => {
+                todo = event.currentTarget.value
+            })
+            
+            let keyCount = 0
+
+            // const remove_todo = (key) => {
+            //     const delete_todo = document.querySelector(`[data-key="${key}"]`)
+            //     div.removeChild(delete_todo)
+            // }
+            // const line_through = (key) => {
+            //     const selected_todo = document.querySelector(`[data-key="${key}"]`)
+            //     selected_todo.style.textDecoration = 'line-through'
+            // }
+            // const delete_line = (key) => {
+            //     const selected_todo = document.querySelector(`[data-key="${key}"]`)
+            //     selected_todo.style.textDecoration = ''
+            // }
+
+            let delete_arr = []
+            
+            button.addEventListener('click', (event) => {
+                const key = keyCount
+                keyCount++
+                const div_todo = document.createElement('div')
+                const input_todo = document.createElement('input')
+                const span_todo = document.createElement('span')
+                const button_todo = document.createElement('button')
+                document.body.append(div)
+                div.appendChild(div_todo)
+                div_todo.appendChild(input_todo)
+                div_todo.appendChild(span_todo)
+                div_todo.appendChild(button_todo)
+                div_todo.setAttribute('data-key', key)
+                input_todo.type = 'checkbox'
+                input_todo.addEventListener('change', (event) => {
+                    delete_arr.push(key)
+                    console.log(delete_arr)
+                    // if (event.currentTarget.checked) {
+                    //     // line_through(key)
+                    //     span_todo.style.textDecoration = 'line-through'
+                    // } else {
+                    //     // delete_line(key)
+                    //     span_todo.style.textDecoration = ''
+                    // }
+                    span_todo.style.textDecoration = event.currentTarget.checked ? 'line-through' : ''
+                })
+                span_todo.textContent = `${todo}`
+                button_todo.textContent = '제거하기'
+                button_todo.addEventListener('click',(event) => {
+                    // remove_todo(key)
+                    div.removeChild(div_todo)
+                })
+            })
+
+            delete_button.addEventListener('click',() => {
+                for (let i = 0; i <= delete_arr.length; i++) {
+                    const delete_todo = document.querySelector(`[data-key="${delete_arr[i]}"]`)
+                    div.removeChild(delete_todo)
+                }
+                delete_arr = []
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

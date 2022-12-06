@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=> {
+            const input = document.createElement('input')
+            const span = document.createElement('span')
+            const br = document.createElement('br')
+            const a = document.createElement('a')
+            document.body.append(input,span,br,a)
+            input.setAttribute('type','checkbox')
+            span.textContent = '링크 활성화'
+            a.setAttribute('href','http://hanbit.co.kr')
+            a.textContent = '한빛미디어'
+
+            a.addEventListener('click',(event) => {
+                if (!input.checked) {
+                    event.preventDefault()
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

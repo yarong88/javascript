@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            const title = document.createElement('h3')            
+            const hr = document.createElement('hr')
+            const last = document.createElement('h3')
+            document.body.append(title)
+            title.textContent = '#좋아하는 애완동물을 선택해주세요.'
+            title.style.cssText = '--ti-cursor-margin-left: 0.1em;--ti-cursor-color: rgb(41, 41, 228);color: cadetblue'
+            
+            new TypeIt(title)
+                .pause(1000)
+                .delete(18,{delay:1000})
+                .type('좋아하는 애완동물을 선택해주세요.')
+                .go()
+
+            const pets = ['강아지', '고양이', '햄스터', '거북이', '열대어', '기타']
+            for (let pet of pets) {
+                const input = document.createElement('input')
+                const span = document.createElement('span')
+                document.body.append(input,span)
+                input.setAttribute('type','radio')
+                input.setAttribute('name','pet')
+                input.setAttribute('value',`${pet}`)
+                // input.value = pet
+                span.textContent = `${pet}`
+                input.addEventListener('change',(event)=> {
+                    last.textContent = `좋아하는 애완동물은 ${event.currentTarget.value}이시군요!`
+                    new TypeIt(last).go()
+                })
+            }
+            document.body.append(hr,last)
+            
+            // 책내용
+            // last.setAttribute('id','output')
+            // const output = document.querySelector('#output')
+            // // id를 부를 때 #
+            // const radios = document.querySelectorAll('[name=pet]')
+            // // 속성? 특성? 을 부를 때 [  =  ]
+            // radios.forEach((radio)=>{
+            //     radio.addEventListener('change',(event)=>{
+
+            // 1번
+            //         // const current = event.currentTarget
+            //         // if (current.checked) {
+            //         //     output.textContent = `좋아하는 애완동물은 ${current.value}이시군요!`
+            //         // }
+
+            // 2번
+            //         // if (event.currentTarget.checked) {
+            //         //     output.textContent = `좋아하는 애완동물은 ${event.currentTarget.value}이시군요!`
+            //         // }
+
+            // 3번
+            //         last.textContent = `좋아하는 애완동물은 ${event.currentTarget.value}이시군요!`
+            //     })
+            // })
+
+
+            let arr1 = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5]
+            let arr2 = new Set(arr1)
+            // Set 중복된 값을 하나로, Set은 앞에 꼭 new가 필요하다.
+            let arr3 = [...arr2]
+            console.log(arr3)
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
