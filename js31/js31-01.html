@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const p = document.createElement('p')
+            const input = document.createElement('input')
+            const push_button = document.createElement('button')
+            const arrange_button = document.createElement('button')
+            const delete_button = document.createElement('button')
+            const overlap_button = document.createElement('button')
+            const reset_button = document.createElement('button')
+            const p_last = document.createElement('p')
+            document.body.append(p,input,push_button,arrange_button,delete_button,overlap_button,reset_button,p_last)
+            push_button.textContent = '추가하기'
+            arrange_button.textContent = '정렬하기'
+            delete_button.textContent = '선택제거'
+            overlap_button.textContent = '중복제거'
+            reset_button.textContent = 'RESET'
+            input.setAttribute('type','text')
+                
+            let Array = []
+            let Value
+
+            const saveValue = localStorage.getItem('input')
+            if (saveValue) {
+                p.textContent = `localStorage에 저장되어 있는 값들 : [${saveValue}]`                 
+                Array = saveValue.split(',')
+            } else {
+                p.textContent = `localStorage에 저장되어 있는 값들 : []`
+            }
+            
+            input.addEventListener('keyup', (event) => {
+                Value = event.currentTarget.value
+                if (event.keyCode === 13) {
+                    Array.push(Value)
+                    localStorage.setItem('input',Array)
+                    input.value = ''
+                    p_last.textContent = `현재 배열에 저장되어 있는 값들 : [${Array}]` 
+                }
+                // enter를 쳐도 기능이 되도록
+                // event.keyCode -> if 구문 이용
+                // code와 keyCode는 다르다.
+            })
+
+            
+            push_button.addEventListener('click',(event) => {
+                const confirm_push = confirm('추가하시겠습니까?')
+                if (confirm_push) {
+                Array.push(Value)
+                localStorage.setItem('input',Array)
+                input.value = ''
+                p_last.textContent = `현재 배열에 저장되어 있는 값들 : [${Array}]` 
+                p_last.style.cssText = '--ti-cursor-margin-left: 0.1em;--ti-cursor-color: rgb(41, 41, 228);color: blue'
+                new TypeIt(p_last).go()  
+                }
+                // 팝업으로 삭제할까요? yes or no
+                // const confirm = confirm(), if(confirm) {} ... 
+            })
+
+            
+            arrange_button.addEventListener('click',(event) => {
+                Array.sort((a,b)=>a-b)
+                localStorage.setItem('input',Array)
+                input.value = ''
+                p_last.textContent = `현재 배열에 저장되어 있는 값들 : [${Array}]` 
+                p_last.style.cssText = '--ti-cursor-margin-left: 0.1em;--ti-cursor-color: rgb(41, 41, 228);color: cadetblue'
+                new TypeIt(p_last).go() 
+            })
+
+            delete_button.addEventListener('click',(event) => {
+                for (let i = Array.length-1; i>=0; i--) {
+                    if (Array[i] == Value) {
+                    const index = Array.indexOf(Value)
+                    Array.splice(index,1)
+                    }
+                }
+                localStorage.setItem('input',Array)
+                input.value = ''
+                p_last.textContent = `현재 배열에 저장되어 있는 값들 : [${Array}]`   
+            })
+
+            overlap_button.addEventListener('click', (event) => {
+                let arr = new Set(Array)
+                Array = [...arr]
+                const Array01 = Array.filter((v)=>{
+                    return (v!=''&&v!=' '&&v!='  '&&v!=null&&v!=undefined)
+                })
+                // reduce 사용해보기
+                //빈칸요소도 없애기
+                localStorage.setItem('input',Array01)
+                input.value = ''
+                p_last.textContent = `현재 배열에 저장되어 있는 값들 : [${Array01}]`   
+                console.log(Array01)     
+            })
+
+
+            reset_button.addEventListener('click',(event) => {
+                localStorage.clear()
+                input.value = ''
+                Array = []
+                p_last.textContent = `현재 배열에 저장되어 있는 값들 : [${Array}]`  
+            })
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage 객체</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const p = document.createElement('p')
+            const button = document.createElement('button')
+            const input = document.createElement('input')
+            document.body.append(p,button,input)
+            button.textContent = '지우기'
+            input.setAttribute('type','text')
+
+            const saveValue = localStorage.getItem('input')
+            if (saveValue) {
+                input.value = saveValue
+                p.textContent = `이전 실행 때의 마지막 값 : ${saveValue}`    
+            }
+            
+            input.addEventListener('keyup', (event) => {
+                const value = event.currentTarget.value
+                localStorage.setItem('input',value)
+            })
+
+            button.addEventListener('click',(event) => {
+                localStorage.clear()
+                input.value = ''
+            })
+
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

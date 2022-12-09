@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arr1 = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5, 5]
+        let arr2 = new Set(arr1)
+        // Set 중복된 값을 하나로, Set은 앞에 꼭 new가 필요하다.
+        console.log(arr2)
+        let arr3 = [...arr2]
+        console.log(arr3)
+
+        let arr4 = []
+        for (let i = 0; i < arr1.length; i++) {
+            if (arr4.indexOf(arr1[i])==-1) {
+        // indexOf는 배열 안에 값이 존재하지 않을 경우 -1을 내놓는다.
+                arr4.push(arr1[i])
+            }
+        }
+        console.log(arr4)
+
+        console.log(arr1.indexOf(1))
+        // indexOf는 배열 안에 같은 값이 있을 경우 제일 앞의 index 값만 내놓는다.
+        let arr5 = arr1.filter((value, index) => {
+         return arr1.indexOf(value) === index
+        })
+        console.log(arr5)
+
+        let arr6 = []
+        arr1.forEach((value) => {
+            if (!arr6.includes(value)) {
+                arr6.push(value)
+            }
+        })            
+        console.log(arr6)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
