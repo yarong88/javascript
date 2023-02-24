@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap');
+    </style>
+    <style>
+        :root{
+            --bkcolor01:rgb(238, 238, 238);
+            --bkcolor02:rgb(208, 208, 208);
+            --bkcolor03:rgb(178, 178, 178);
+
+            --bcolor01:rgb(230, 230, 255);
+            --bcolor02:rgb(200, 200, 255);
+            --bcolor03:rgb(170, 170, 255);
+            --bcolor04:rgb(140, 140, 255);
+        }
+        body, button, input {
+            font-family: 'Noto Serif KR', serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .input-set{
+            height: 40px;
+        }
+        .container{
+            padding: 30px;
+            border-radius: 20px;
+            background-color: var(--bkcolor01);
+            width:100%;
+            max-width: 25rem;
+            height: auto;
+        }
+        h1{
+            text-align: center;
+            margin: 0 0 10px 0;
+            color: rgb(0, 4, 66);
+        }
+        .input-set{
+            height: 40px;
+            margin-bottom: 7px;
+        }
+        #new-input{
+            color: var(--bcolor02);
+            font-size: 1em;
+            font-weight: bold;
+            margin: 0px;
+            padding: 5px;
+            width: 75%;
+            height: 100%;
+            border-radius: 20px 0 0 20px;
+            display: inline;
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.5);
+        }
+        #new-add{
+            margin-left: -5px;
+            font-size: 1em;
+            width: 25%;
+            height: 100%;        
+            padding: 5px;
+            border-radius: 0 20px 20px 0;
+            display: inline;
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.5);
+            background-color: var(--bcolor1);
+        }
+        button{
+            width: 80px;
+            height: 40px;
+            margin: 3px;
+            font-weight: bold;
+            border-radius: 10px;
+            background-color: var(--bcolor02);
+            border: 1px solid rgba(0,0,0,0.5);
+            color: var(--bcolor3);
+            font-size: 1em;
+        }
+        button:hover{
+            width: 80px;
+            height: 40px;
+            margin: 3px;
+            font-weight: bold;
+            border-radius: 10px;
+            background-color: var(---bcolor03);
+            border: 1px solid rgba(0,0,0,0.5);
+            color: var(--bcolor0);
+            font-size: 1em;
+        }
+        h2{
+            margin: 0;
+            /* overflow: hidden; */
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        .list-card{
+            transition: 1s ease;
+            background-color: var(--bcolor01);
+            border-radius: 10px;
+            color: white;
+            max-width:85%;
+            height: 45px;
+            padding: 10px;
+            margin: 0 0 10px 0;
+            overflow: hidden;
+            /* white-space: normal; */
+            /* word-wrap: break-word; */
+        }
+        .list-card:hover{
+            transition: 1s ease;
+            background-color: var(--bcolor03);
+            border-radius: 10px;
+            color: white;
+            max-width:100%;
+            height: auto;
+            padding: 10px;
+            margin: 0 0 10px 0;
+            overflow: hidden;
+            /* white-space: normal; */
+            /* word-wrap: break-word; */
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            
+        })
+    </script>
+</head>
+<body>
+    <!-- div.container>div.main>h1+div>input#new-input+input#new-add^button#sel-del+button#all-del^div#list -->
+    <div class="container">
+        <div class="main">
+            <h1>할 일 목록</h1>
+            <div class="input-set">
+                <input type="text" id="new-input">
+                <input type="button" id="new-add" value="할일추가"></div>
+            <button id="sel-del">완료제거</button>
+            <button id="all-del">모두제거</button>
+        </div>
+            <hr>
+        <div id="list">
+            <div class="list-card">
+                <span>체크</span>
+                <input type="checkbox">
+                <!-- <button>삭제</button> -->
+                <h2>안녕하세요.반가워요.안녕하세요.반가워요.안녕하세요.반가워요.안녕하세요.반가워요.</h2>
+            </div>
+            <div class="list-card">
+                <span>체크</span>
+                <input type="checkbox">
+                <!-- <button>삭제</button> -->
+                <h2>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

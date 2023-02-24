@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class간 부모자식 관계</title>
+    <script>
+        class Rectangle {
+            constructor(width, height) {
+                this.width = width
+                this.height = height
+            }
+            getP() {
+                return 2 * (this.width + this.height)
+            }
+            getA() {
+                return this.width * this.height
+            }
+        }
+
+        class Square extends Rectangle {
+            // Rectangle의 자식 클래스
+            constructor(length) {
+                super(length, length)
+                // 부모의 생성자 코드를 호출하는 코드
+            }
+        }
+
+        const square = new Square(20)
+        console.log(square.getP())
+        console.log(square.getA())
+        // 부모의 메소드를 물려 받았으므로 사용 가능
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

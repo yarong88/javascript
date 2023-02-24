@@ -7,6 +7,13 @@
     <title>할 일 목록/localStorage</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;500;700&display=swap');
+        
+        body, button, input {
+            font-family: 'Noto Serif KR', serif;
+        }
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', ()=> {
             const container_big = document.createElement('div')
@@ -47,134 +54,150 @@
             
             
             let keyCount = 0
-            let keybox = []
-            let todo = ''
             let data_box = []
+            let data_box_ = []
             
-            data_box = JSON.parse(localStorage.getItem('JSON_dt'))
-
-            if (data_box) {
-                // keyCount = data_box[data_box.length-1].id_num
-
+            data_box_ = JSON.parse(localStorage.getItem('JSON_dt'))
+            
+            if (data_box_) {
+                data_box = data_box_
+                keyCount = data_box[data_box.length-1].id_num + 1
+                
                 for (let i = 0; i<data_box.length; i++) {
                     const JSON_fixed = data_box[i]
-                    const div_todo = document.createElement('div')
-                    const input_todo = document.createElement('input')
-                    const content_todo = document.createElement('div')
-                    const delete_todo = document.createElement('button')
-                    container_low.appendChild(div)
-                    div.appendChild(div_todo)
-                    div_todo.appendChild(input_todo)
-                    div_todo.appendChild(content_todo)
-                    div_todo.appendChild(delete_todo)
-                    input_todo.type = 'checkbox'
-                    delete_todo.setAttribute("class", "btn btn-danger")
                     
-                    div_todo.style = "margin: 5px;display:flex; flex-direction: column;align-items: flex-start;background-color: blanchedalmond;border-radius: 3px;"
-                    content_todo.style = "background: white;width: 355px;margin: 5px;border-radius: 3px;"
-                    delete_todo.style = "position: relative;left: 290px;"
-                    
-                    // input_todo.addEventListener('change', (event) => {
-                        //     if (evnet.currentTarget.checked) {
-                    //         content_todo.style.textDecoration = 'line-through'
-                    //         JSON_fixed.check = JSON_fixed.key
-                    //         data_box.push({...data})
-                    //         const JSON_dt = JSON.stringify(data_box)
-                    //         localStorage.setItem('JSON_dt',JSON_dt)
-                    //     } else {
-                        //         content_todo.style.textDecoration = ''
-                    //         JSON_fixed.check = 0
-                    //         data_box.push({...data})
-                    //         const JSON_dt = JSON.stringify(data_box)
-                    //         localStorage.setItem('JSON_dt',JSON_dt)
-                    //     }
-                    // })
-                    
-                    content_todo.textContent = data_box[i].content
-                    delete_todo.textContent = 'delete'
-                    delete_todo.addEventListener('click',(event) => {
-                        div.removeChild(div_todo)
-                        data_box.splice(data_box.indexOf(JSON_fixed),1)   
-                        const JSON_dt = JSON.stringify(data_box)
-                        localStorage.setItem('JSON_dt',JSON_dt)
-                    })
+                    add_todo(data_box[i].id_num,data_box[i].content,data_box[i].check)
+                    input_todo(data_box[i].id_num,data_box[i].check)
+                    delete_todo(data_box[i].id_num)
                 }
-            }   
-            
-            input.addEventListener('keyup', (event) => {
-                todo = event.currentTarget.value
-                if (event.keyCode ===13) {
-                    input.value = ''
-                    
-                    keyCount++
-                    const key = keyCount
-                    
-                    const div_todo = document.createElement('div')
-                    const input_todo = document.createElement('input')
-                    const content_todo = document.createElement('div')
-                    const span_new = document.createElement('span')
-                    const delete_todo = document.createElement('button')
-                    
-                    container_low.appendChild(div)
-                    div.appendChild(div_todo)
-                    div_todo.appendChild(input_todo)
-                    div_todo.appendChild(span_new)
-                    div_todo.appendChild(content_todo)
-                    div_todo.appendChild(delete_todo)
-                    
-                    input_todo.type = 'checkbox'
-                    content_todo.textContent = `${todo}`
-                    span_new.setAttribute("class","badge bg-secondary")
-                    span_new.textContent = "new"
-                    delete_todo.setAttribute("class", "btn btn-danger")
-                    delete_todo.textContent = 'delete'
-                    
-                    div_todo.style = "margin: 5px;display:flex; flex-direction: column;align-items: flex-start;background-color: blanchedalmond;border-radius: 3px;"
-                    content_todo.style = "background: white;width: 355px;margin: 5px;border-radius: 3px;"
-                    delete_todo.style = "position: relative;left: 290px;"
-                    
-                    const data = {}
-                    data.id_num = key
-                    data.content = todo
-                    data_box.push({...data})
-                    
-                    // input_todo.addEventListener('change', (event) => {
-                    //     if (evnet.currentTarget.checked) {
-                        //         content_todo.style.textDecoration = 'line-through'
-                        //         data.check = key
-                        //         data_box.push({...data})
-                        //         const JSON_dt = JSON.stringify(data_box)
-                        //         localStorage.setItem('JSON_dt',JSON_dt)
-                        //     } else {
-                            //         content_todo.style.textDecoration = ''
-                    //         data.check = 0
-                    //         data_box.push({...data})
-                    //         const JSON_dt = JSON.stringify(data_box)
-                    //         localStorage.setItem('JSON_dt',JSON_dt)
-                    //     }
-                    // })
-                    
-                    delete_todo.addEventListener('click',(event) => {
-                        div.removeChild(div_todo)
-                        data_box.splice(data_box.indexOf(data),1) 
-                        const JSON_dt = JSON.stringify(data_box)             
-                        localStorage.setItem('JSON_dt',JSON_dt)
-                    })                   
+            }
 
+            input.addEventListener('keyup', (event) => {
+                const todo = event.currentTarget.value
+                if (event.keyCode ===13) {
+                    input.value = null
+                    input.textContent = ''
+                    
+                    data_box.push({
+                        id_num: keyCount,
+                        content: todo,
+                        check: false,
+                    })
                     const JSON_dt = JSON.stringify(data_box)
                     localStorage.setItem('JSON_dt',JSON_dt)
+
+                    add_todo(keyCount,todo,false)
+                    input_todo(keyCount,false)
+                    delete_todo(keyCount)
+                    span_new(keyCount)
+
+                    keyCount++
                 }
-            })           
+            })            
             
-            // reset_button.addEventListener('click', (event) => {  
-            //     container_low.removeChild(div)              
-            //     localStorage.setItem('keybox','')
-            //     keyCount = 0
-            //     localStorage.setItem('keycount',keyCount)
-            //     for (let i = 0; i<keybox_Value02.length; i++) {
-            //         localStorage.setItem(`${i}`,'')
-            //     }
-            // })
+            reset_button.addEventListener('click', (event) => {  
+                container_low.removeChild(div)
+                localStorage.clear();
+                data_box = []
+                keyCount = 0
+            })
+            
+            function add_todo(id_num,content,ck) {
+                const div_todo = document.createElement('div')
+                const input_todo = document.createElement('input')
+                const content_todo = document.createElement('div')
+                const delete_todo = document.createElement('button')
+                
+                container_low.appendChild(div)
+                div.appendChild(div_todo).append(input_todo,content_todo,delete_todo)
+                    
+                Object.assign(div_todo,{
+                    id:`l${id_num}`,
+                    // d1, d2, d3 이런 식으로 생성
+                    className:"todo_list:todo_list_checked",
+                    // 체크할 시 css 변화를 주기 위해
+                    style:"margin: 5px;display:flex; flex-direction: column;align-items: flex-start;background-color: blanchedalmond;border-radius: 3px;",
+                    // 스타일을 담을 수 있다.
+                })
+                Object.assign(input_todo,{
+                    id:`i${id_num}`,
+                    type: 'checkbox',
+                    checked: ck ?'checked':'',
+                })
+                Object.assign(content_todo,{
+                    id:`c${id_num}`,
+                    textContent:`${content}`,
+                    style:"background: white;width: 355px;margin: 5px;border-radius: 3px;word-break:break-all;",
+                })
+                Object.assign(delete_todo,{
+                    id:`d${id_num}`,
+                    className:"badge bg-secondary",
+                    textContent:'delete',
+                    style:"position: relative;left: 290px;",
+                })
+            }
+                        
+            function input_todo(id,ck) {                
+                const input_todo = document.getElementById(`i${id}`)
+                const content_todo = document.getElementById(`c${id}`)
+
+                if (ck) {
+                    content_todo.style.textDecoration = 'line-through'
+                    input_todo.checked = true
+                }                      
+                
+                const found = data_box.find(v => v.id_num === id)
+
+                input_todo.addEventListener('change', (event) => {
+                    if (input_todo.checked) {
+                        content_todo.style.textDecoration = 'line-through'
+                        
+                        found.check = true
+                        data_box.splice(data_box.indexOf(found),1,found)
+                        const JSON_dt = JSON.stringify(data_box)
+                        localStorage.setItem('JSON_dt',JSON_dt)
+                    } else {
+                        content_todo.style.textDecoration = ''
+                        
+                        found.check = false
+                        data_box.splice(data_box.indexOf(found),1,found)
+                        const JSON_dt = JSON.stringify(data_box)
+                        localStorage.setItem('JSON_dt',JSON_dt)
+                    }
+                })
+            }
+
+            function delete_todo(id) {                
+                const delete_todo = document.getElementById(`d${id}`)
+                
+                const found = data_box.find(v => v.id_num === id)
+                
+                delete_todo.addEventListener('click',(event) => {
+                    const div_todo = document.getElementById(`l${id}`)
+                    div.removeChild(div_todo)
+                    if (data_box.length>1) {
+                        data_box.splice(data_box.indexOf(found),1) 
+                        const JSON_dt = JSON.stringify(data_box)             
+                        localStorage.setItem('JSON_dt',JSON_dt)
+                    } else {                        
+                        localStorage.clear();
+                        data_box = []
+                        keyCount = 0
+                    }
+                })
+            }
+            
+            function span_new(id) {
+                const div = document.getElementById(`l${id}`)
+                const span_new = document.createElement('span')
+                div.appendChild(span_new)
+
+                Object.assign(span_new,{
+                    textContent: 'new',
+                    className: "badge bg-secondary",
+                })
+            }
+
         })
     </script>
 </head>

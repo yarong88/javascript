@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Wizard {
+            constructor (health, mana, armor) {
+                this.health = health
+                this.mana = mana
+                this.armor = armor
+            }
+            
+            attack() {
+                return `${this.health}\t${this.mana}\t${this.armor}\n`
+            }
+            magic() {
+                return '파이어볼'
+            }
+        }
+
+        const Wizards = []
+        Wizards.push(new Wizard(545, 210, 10))
+
+        let output = '출력 : \n'
+        for (const x of Wizards) {
+            output += x.attack()
+            output += x.magic()
+        }
+        console.log(output)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
